@@ -1,0 +1,37 @@
+
+<nz-layout>
+    <nz-header style="background: linear-gradient(90deg, #4b0082, #8a2be2);">
+      <div class="logo">
+        <a href="#">Cinema Management</a>
+        <div style="display: flex;">
+          <input nz-input placeholder="Search movies" [formControl]="searchTerm"/>
+          <button class="login-button" [routerLink]="'/login'" nz-button nzType="primary" >Login</button>
+         
+        </div>
+     
+      </div>
+     
+    </nz-header>
+    
+    <nz-content>
+      <div class="container">
+        <div class="movie-cards">
+          <div class="movie-card" *ngFor="let movie of filteredMovies">
+            <img style="width: 100%; height: 300px; object-fit: contain" [src]="movie?.movie_img_url" alt="{{ movie.title }}">
+            <div class="movie-details">
+              <h2>{{ movie.title }}</h2>
+              <p>{{ movie.description }}</p>
+              <a [href]="movie.movie_imdb_url">View More</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nz-content>
+  
+    <!-- <footer>
+      <div class="footer">
+        <p>&copy; 2024 Cinema. All rights reserved.</p>
+      </div>
+    </footer> -->
+  </nz-layout>
+  
